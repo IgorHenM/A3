@@ -2,6 +2,7 @@ package view;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.Cadastro_Ferramentas;
+import javax.swing.JOptionPane;
 
 
 public class TelaCadastroFerramenta extends javax.swing.JFrame {
@@ -116,9 +117,20 @@ public class TelaCadastroFerramenta extends javax.swing.JFrame {
 
         btnCadastrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                addF.setNome(inputNome.getText());
-                addF.setMarca(inputMarca.getText());
-                addF.setCusto(Float.parseFloat(inputValor.getText()));
+
+                String nome = inputNome.getText();
+                String marca = inputMarca.getText();
+                float valor = 0;
+
+                try {
+                    valor = Float.parseFloat(inputValor.getText());
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Insira o campo valor corretamente!");
+                }
+
+                addF.setNome(nome);
+                addF.setMarca(marca);
+                addF.setCusto(valor);
                 addF.cadastrarFerramenta();
             }
         });

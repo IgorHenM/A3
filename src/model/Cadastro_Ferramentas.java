@@ -10,7 +10,7 @@ public class Cadastro_Ferramentas extends CadastrarFerramentaDAO{
     private String marca;
     
     public Cadastro_Ferramentas(){
-        this(null,0,null);
+        this("",0,"");
     }
     
     public Cadastro_Ferramentas(String nome, float custo, String marca){
@@ -44,7 +44,7 @@ public class Cadastro_Ferramentas extends CadastrarFerramentaDAO{
     }
     
     public void cadastrarFerramenta() {
-        if (!getNome().equals(null) || !getMarca().equals(null) || getCusto() > 0) {
+        if (!getNome().equals("") || !getMarca().equals("") || getCusto() > 0) {
             Cadastrar(getNome(), getMarca(), getCusto());
         } else {
             JOptionPane.showMessageDialog(null, "Digite todos os dados corretamente!");
